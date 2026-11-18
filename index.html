@@ -3,17 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0; url=/feline-oracle/">
+<meta http-equiv="refresh" content="5; url=/feline-oracle/">
 <title>MiaoQian · Feline Oracle</title>
 <style>
-body{background:#1a1218;color:#f5eef2;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-a{color:#ff6b8a;font-size:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1218;color:#f5eef2;font-family:system-ui,-apple-system,sans-serif;
+     display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.card{max-width:340px;width:100%;text-align:center;padding:32px 24px;
+     background:#2a1e25;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.cat{font-size:48px;margin-bottom:12px}
+h1{font-size:20px;margin-bottom:8px}
+p{font-size:14px;color:#c9b8c0;line-height:1.6}
+#timer{font-size:48px;font-weight:700;margin:16px 0;color:#ff6b8a;font-variant-numeric:tabular-nums}
+a.btn{display:inline-block;margin-top:12px;padding:10px 28px;background:#ff6b8a;color:#1a1218;
+     text-decoration:none;border-radius:24px;font-weight:600;font-size:14px}
+a.btn:active{transform:scale(.97)}
+small{display:block;margin-top:16px;color:#8a7580;font-size:11px}
 </style>
 </head>
 <body>
-<div style="text-align:center">
-  <p>正在跳转到 <a href="/feline-oracle/">喵签</a>…</p>
+<div class="card">
+  <div class="cat">🐱</div>
+  <h1>喵签 · Feline Oracle</h1>
+  <p>正在为你召唤签文…</p>
+  <div id="timer">5</div>
+  <a class="btn" href="/feline-oracle/">直接进入</a>
+  <small>若 5 秒后未跳转，点上方按钮</small>
 </div>
-<script>location.replace('/feline-oracle/');</script>
+<script>
+(function(){
+  var n=5, el=document.getElementById('timer');
+  var t=setInterval(function(){
+    n--; el.textContent=n;
+    if(n<=0){clearInterval(t); location.replace('/feline-oracle/');}
+  },1000);
+})();
+</script>
 </body>
 </html>
